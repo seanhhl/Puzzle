@@ -7,7 +7,6 @@ signal state_updated
 var player: Player
 var walls: Array[Wall] = []
 var crates: Array[Crate] = []
-var crate_clusters: Array[CrateCluster] = []
 var light_balls: Array[LightBall] = []
 var doors: Array[Door] = []
 var buttons: Array[GameButton] = []
@@ -20,7 +19,7 @@ var history: Array[Dictionary] = []
 
 # Spatial indices: rebuilt in update_all_states() for O(1) lookups
 var _wall_set: Dictionary = {} # Vector2i -> bool
-var _entity_map: Dictionary = {} # Vector2i -> GridObject
+var _spatial_map: Dictionary = {} # Vector2i -> Array[GridObject]
 
 # Scene preloads
 const SCENE_WALL: PackedScene = preload("res://scenes/objects/wall.tscn")
@@ -39,7 +38,6 @@ func clear() -> void:
 	player = null
 	walls.clear()
 	crates.clear()
-	crate_clusters.clear()
 	light_balls.clear()
 	doors.clear()
 	buttons.clear()
@@ -48,7 +46,7 @@ func clear() -> void:
 	lit_tiles.clear()
 	history.clear()
 	_wall_set.clear()
-	_entity_map.clear()
+	_spatial_map.clear()
 
 ## Builds a level from an LDtk level data instance
 func build_level_ldtk(level_data: LdtkLoader.LdtkLevelData, parent_node: Node2D) -> void:
@@ -126,8 +124,8 @@ func build_level_ldtk(level_data: LdtkLoader.LdtkLevelData, parent_node: Node2D)
 				targets.append(target)
 				all_objects.append(target)
 
-	# Build connected crate clusters
-	_build_crate_clusters(crate_map, crate_connections)
+	# Setup bidirectional crate connections
+	_setup_crate_connections(crate_map, crate_connections)
 
 	_rebuild_wall_set()
 	update_all_states()
@@ -145,8 +143,8 @@ func build_level(level_data: LevelLoader.LevelData, parent_node: Node2D) -> void
 			var grid_pos := Vector2i(x, y)
 			_spawn_object_by_char(tile_char, grid_pos, parent_node)
 
-	# Every crate is its own single cluster in legacy format
-	_build_crate_clusters({}, {})
+	# In legacy format, no interconnected crates
+	_setup_crate_connections({}, {})
 
 	_rebuild_wall_set()
 	update_all_states()
@@ -198,50 +196,49 @@ func _spawn_object_by_char(tile_char: String, pos: Vector2i, parent_node: Node2D
 			targets.append(target)
 			all_objects.append(target)
 
-func _build_crate_clusters(crate_map: Dictionary, connections: Dictionary) -> void:
-	crate_clusters.clear()
-	var visited: Dictionary = {}
-
-	# 1. Process explicit clusters from connections
-	for iid in crate_map:
-		if visited.has(iid):
-			continue
-
-		var cluster := CrateCluster.new()
-		cluster.id = crate_clusters.size() + 1
-
-		var queue: Array[String] = [iid]
-		visited[iid] = true
-
-		while not queue.is_empty():
-			var curr_iid := queue.pop_front() as String
-			var curr_crate: Crate = crate_map[curr_iid]
-			cluster.crates.append(curr_crate)
-			curr_crate.cluster = cluster
-
-			var neighbors: Array = connections.get(curr_iid, [])
-			for neighbor_iid in neighbors:
-				if crate_map.has(neighbor_iid):
-					var neighbor_crate: Crate = crate_map[neighbor_iid]
-					if not curr_crate.connected_crates.has(neighbor_crate):
-						curr_crate.connected_crates.append(neighbor_crate)
-					if not neighbor_crate.connected_crates.has(curr_crate):
-						neighbor_crate.connected_crates.append(curr_crate)
-
-					if not visited.has(neighbor_iid):
-						visited[neighbor_iid] = true
-						queue.append(neighbor_iid)
-
-		crate_clusters.append(cluster)
-
-	# 2. Ensure any remaining crate without links gets its own 1-crate cluster
+## Setup bidirectional pointers between interconnected crates
+func _setup_crate_connections(crate_map: Dictionary, connections: Dictionary) -> void:
 	for c in crates:
-		if c.cluster == null:
-			var single_cluster := CrateCluster.new()
-			single_cluster.id = crate_clusters.size() + 1
-			single_cluster.crates.append(c)
-			c.cluster = single_cluster
-			crate_clusters.append(single_cluster)
+		c.connected_crates.clear()
+
+	for iid in connections:
+		if not crate_map.has(iid):
+			continue
+		var crate_a: Crate = crate_map[iid]
+		var neighbors: Array = connections[iid]
+		for target_iid in neighbors:
+			if crate_map.has(target_iid):
+				var crate_b: Crate = crate_map[target_iid]
+				if not crate_a.connected_crates.has(crate_b):
+					crate_a.connected_crates.append(crate_b)
+				if not crate_b.connected_crates.has(crate_a):
+					crate_b.connected_crates.append(crate_a)
+
+## Finds all connected crates in the same connected component via BFS.
+## Uses crate.iid as visited key (or instance ID if iid is empty).
+func get_connected_crates(start_crate: Crate) -> Array[Crate]:
+	var result: Array[Crate] = []
+	if start_crate == null or not is_instance_valid(start_crate):
+		return result
+
+	var visited: Dictionary = {}
+	var queue: Array[Crate] = [start_crate]
+	var start_key: String = start_crate.iid if not start_crate.iid.is_empty() else str(start_crate.get_instance_id())
+	visited[start_key] = true
+
+	while not queue.is_empty():
+		var curr := queue.pop_front() as Crate
+		result.append(curr)
+
+		for neighbor in curr.connected_crates:
+			if not is_instance_valid(neighbor):
+				continue
+			var n_key: String = neighbor.iid if not neighbor.iid.is_empty() else str(neighbor.get_instance_id())
+			if not visited.has(n_key):
+				visited[n_key] = true
+				queue.append(neighbor)
+
+	return result
 
 # region 空間索引
 
@@ -250,36 +247,23 @@ func _rebuild_wall_set() -> void:
 	for w in walls:
 		_wall_set[w.grid_pos] = true
 
-func _rebuild_entity_map() -> void:
-	_entity_map.clear()
-	# Only illuminated crates possess collision volume
-	for c in crates:
-		if c.is_lit:
-			_entity_map[c.grid_pos] = c
-	# Lightballs always possess collision volume
-	for lb in light_balls:
-		_entity_map[lb.grid_pos] = lb
+func _rebuild_spatial_map() -> void:
+	_spatial_map.clear()
+	for obj in all_objects:
+		if is_instance_valid(obj):
+			var pos: Vector2i = obj.grid_pos
+			if not _spatial_map.has(pos):
+				_spatial_map[pos] = [] as Array[GridObject]
+			_spatial_map[pos].append(obj)
+
+func get_objects_at(pos: Vector2i) -> Array[GridObject]:
+	return _spatial_map.get(pos, [] as Array[GridObject])
 
 func is_blocking_at(pos: Vector2i) -> bool:
-	for w in walls:
-		if w.grid_pos == pos and w.is_blocking:
-			return true
-	for d in doors:
-		if d.grid_pos == pos and d.is_blocking:
+	for obj in get_objects_at(pos):
+		if obj.is_blocking and not obj.is_pushable:
 			return true
 	return false
-
-func is_wall_at(pos: Vector2i) -> bool:
-	return is_blocking_at(pos)
-
-func is_closed_door_at(pos: Vector2i) -> bool:
-	for d in doors:
-		if d.grid_pos == pos and d.is_blocking:
-			return true
-	return false
-
-func get_solid_entity_at(pos: Vector2i) -> GridObject:
-	return _entity_map.get(pos, null)
 
 # endregion
 
@@ -302,34 +286,36 @@ func update_all_states() -> void:
 	for obj in all_objects:
 		obj.set_lit(lit_tiles.get(obj.grid_pos, false))
 
-	# 3b. Any-Lit rule for connected crate clusters:
-	# If ANY crate in a cluster is illuminated, the ENTIRE cluster is illuminated!
-	for cluster in crate_clusters:
+	# 3b. Connected crates illumination sharing:
+	# If ANY crate in a connected component is illuminated, all connected crates in that component are illuminated!
+	var lit_visited: Dictionary = {}
+	for c in crates:
+		var c_key: String = c.iid if not c.iid.is_empty() else str(c.get_instance_id())
+		if lit_visited.has(c_key):
+			continue
+
+		var component := get_connected_crates(c)
 		var any_lit := false
-		for c in cluster.crates:
-			if lit_tiles.get(c.grid_pos, false):
+		for member in component:
+			if lit_tiles.get(member.grid_pos, false):
 				any_lit = true
 				break
-		cluster.set_all_lit(any_lit)
 
-	# 4. Rebuild entity spatial map (crate solidity depends on is_lit)
-	_rebuild_entity_map()
+		for member in component:
+			var m_key: String = member.iid if not member.iid.is_empty() else str(member.get_instance_id())
+			lit_visited[m_key] = true
+			member.set_lit(any_lit)
+
+	# 4. Rebuild spatial map
+	_rebuild_spatial_map()
 
 	# 5. Update button states
 	for btn in buttons:
 		var pressed := false
-		if player and player.grid_pos == btn.grid_pos and player.is_lit:
-			pressed = true
-		if not pressed:
-			for c in crates:
-				if c.grid_pos == btn.grid_pos and c.is_lit:
-					pressed = true
-					break
-		if not pressed:
-			for lb in light_balls:
-				if lb.grid_pos == btn.grid_pos:
-					pressed = true
-					break
+		for obj in get_objects_at(btn.grid_pos):
+			if obj != btn and obj.is_lit and (obj.is_pushable or obj is Player):
+				pressed = true
+				break
 		btn.set_pressed(pressed)
 
 	# 6. Update door states (doors transmit light, so changes never alter light propagation)
@@ -363,64 +349,71 @@ func try_move_player(dir: Vector2i) -> bool:
 		return false
 
 	var target_pos := player.grid_pos + dir
+	if not bounds.has_point(target_pos):
+		return false
 
-	# Multi-push validation for rigid crate clusters and pushable entities
+	# Push chain validation
 	var moving_entities: Array[GridObject] = []
 	var moving_set: Dictionary = {} # GridObject -> bool
-	var frontier: Array[Vector2i] = [target_pos]
+	var queue: Array[GridObject] = []
 
-	var can_move := true
+	# Player initiates the movement
+	moving_set[player] = true
+	queue.append(player)
 
-	while not frontier.is_empty():
-		var check_pos: Vector2i = frontier.pop_front()
+	while not queue.is_empty():
+		var entity := queue.pop_front() as GridObject
 
-		# Check impassable obstacle (wall or closed door)
-		if is_blocking_at(check_pos):
-			can_move = false
-			break
+		# 1. Overlapping check at entity's current grid position
+		var overlaps := get_objects_at(entity.grid_pos)
+		for overlap_obj in overlaps:
+			if overlap_obj == entity or moving_set.has(overlap_obj):
+				continue
 
-		var solid_entity := get_solid_entity_at(check_pos)
-		if solid_entity == null:
-			# Reached an empty space (or unlit passable crate)
-			continue
+			# Immovable blocking obstacle (e.g. lit wall, closed door) cancels the entire move
+			if overlap_obj.is_blocking and not overlap_obj.is_pushable:
+				return false
 
-		# Already added to moving_set (internal movement within the same cluster or chain)
-		if moving_set.has(solid_entity):
-			continue
+			# Pushable overlapping object joins the push chain
+			if overlap_obj.is_pushable:
+				moving_set[overlap_obj] = true
+				moving_entities.append(overlap_obj)
+				queue.append(overlap_obj)
+			# Non-blocking non-pushable objects (buttons, unlit walls/crates) are directly ignored
 
-		# Non-pushable or blocking entity stops movement
-		if not solid_entity.is_pushable or solid_entity.is_blocking:
-			can_move = false
-			break
+		# 2. If entity is a Crate, find all transitively connected crates via BFS
+		if entity is Crate:
+			var connected := get_connected_crates(entity as Crate)
+			for c in connected:
+				if not moving_set.has(c):
+					moving_set[c] = true
+					moving_entities.append(c)
+					queue.append(c)
 
-		if solid_entity is Crate:
-			var crate := solid_entity as Crate
-			var cluster := crate.cluster
-			if cluster != null and not cluster.crates.is_empty():
-				# All crates in the cluster must move together as a single rigid body
-				for member in cluster.crates:
-					if not moving_set.has(member):
-						moving_set[member] = true
-						moving_entities.append(member)
-						frontier.append(member.grid_pos + dir)
-			else:
-				moving_set[crate] = true
-				moving_entities.append(crate)
-				frontier.append(crate.grid_pos + dir)
-		elif solid_entity is LightBall:
-			moving_set[solid_entity] = true
-			moving_entities.append(solid_entity)
-			frontier.append(solid_entity.grid_pos + dir)
-		else:
-			can_move = false
-			break
+		# 3. Check destination position (entity.grid_pos + dir)
+		var dest_pos := entity.grid_pos + dir
+		if not bounds.has_point(dest_pos):
+			return false
 
-	if not can_move:
-		return false
+		var dest_objects := get_objects_at(dest_pos)
+		for dest_obj in dest_objects:
+			if moving_set.has(dest_obj):
+				continue
+
+			# Immovable blocking obstacle (lit wall, closed lit door) at destination cancels the entire move
+			if dest_obj.is_blocking and not dest_obj.is_pushable:
+				return false
+
+			# Pushable object at destination is pushed and joins the push chain
+			if dest_obj.is_pushable:
+				moving_set[dest_obj] = true
+				moving_entities.append(dest_obj)
+				queue.append(dest_obj)
+			# Non-blocking non-pushable objects (buttons, targets, unlit walls/doors/crates) are directly ignored
 
 	save_state()
 
-	# Move all entities in reverse order of addition
+	# Move all pushed entities
 	for i in range(moving_entities.size() - 1, -1, -1):
 		var item := moving_entities[i]
 		item.set_grid_pos(item.grid_pos + dir, true)

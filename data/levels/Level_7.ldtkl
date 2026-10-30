@@ -1,0 +1,362 @@
+{
+	"__header__": {
+		"fileType": "LDtk Project JSON",
+		"app": "LDtk",
+		"doc": "https://ldtk.io/json",
+		"schema": "https://ldtk.io/files/JSON_SCHEMA.json",
+		"appAuthor": "Sebastien 'deepnight' Benard",
+		"appVersion": "1.5.3",
+		"url": "https://ldtk.io"
+	},
+	"identifier": "Level_7",
+	"iid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+	"uid": 29,
+	"worldX": 2560,
+	"worldY": 576,
+	"worldDepth": 0,
+	"pxWid": 896,
+	"pxHei": 704,
+	"__bgColor": "#696A79",
+	"bgColor": null,
+	"useAutoIdentifier": true,
+	"bgRelPath": null,
+	"bgPos": null,
+	"bgPivotX": 0.5,
+	"bgPivotY": 0.5,
+	"__smartColor": "#ADADB5",
+	"__bgPos": null,
+	"externalRelPath": null,
+	"fieldInstances": [],
+	"layerInstances": [
+		{
+			"__identifier": "Entities",
+			"__type": "Entities",
+			"__cWid": 14,
+			"__cHei": 11,
+			"__gridSize": 64,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": null,
+			"__tilesetRelPath": null,
+			"iid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+			"levelId": 29,
+			"layerDefUid": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [],
+			"autoLayerTiles": [],
+			"seed": 7942259,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": [
+				{
+					"__identifier": "Crate",
+					"__grid": [5,3],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "cd7336c0-bde0-11f1-93a3-4f146c71685d",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [352,224],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [{
+						"entityIid": "cda98900-bde0-11f1-93a3-6309c61197b1",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}], "__tile": null, "defUid": 7, "realEditorValues": [{
+						"id": "V_String",
+						"params": ["cda98900-bde0-11f1-93a3-6309c61197b1"]
+					}] }],
+					"__worldX": 2912,
+					"__worldY": 800
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [5,4],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "cda98900-bde0-11f1-93a3-6309c61197b1",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [352,288],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [ {
+						"entityIid": "cd7336c0-bde0-11f1-93a3-4f146c71685d",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}, {
+						"entityIid": "cddef0e0-bde0-11f1-93a3-13d93abad501",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					} ], "__tile": null, "defUid": 7, "realEditorValues": [ {
+						"id": "V_String",
+						"params": ["cd7336c0-bde0-11f1-93a3-4f146c71685d"]
+					}, {
+						"id": "V_String",
+						"params": ["cddef0e0-bde0-11f1-93a3-13d93abad501"]
+					} ] }],
+					"__worldX": 2912,
+					"__worldY": 864
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [5,5],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "cddef0e0-bde0-11f1-93a3-13d93abad501",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [352,352],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [{
+						"entityIid": "cda98900-bde0-11f1-93a3-6309c61197b1",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}], "__tile": null, "defUid": 7, "realEditorValues": [{
+						"id": "V_String",
+						"params": ["cda98900-bde0-11f1-93a3-6309c61197b1"]
+					}] }],
+					"__worldX": 2912,
+					"__worldY": 928
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [7,3],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "cff26790-bde0-11f1-93a3-9b447c14831d",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [480,224],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [{
+						"entityIid": "d027f680-bde0-11f1-93a3-1d7f875f0dc2",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}], "__tile": null, "defUid": 7, "realEditorValues": [{
+						"id": "V_String",
+						"params": ["d027f680-bde0-11f1-93a3-1d7f875f0dc2"]
+					}] }],
+					"__worldX": 3040,
+					"__worldY": 800
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [8,3],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "d027f680-bde0-11f1-93a3-1d7f875f0dc2",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [544,224],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [ {
+						"entityIid": "cff26790-bde0-11f1-93a3-9b447c14831d",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}, {
+						"entityIid": "d0587c60-bde0-11f1-93a3-fd78a5fcac68",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					} ], "__tile": null, "defUid": 7, "realEditorValues": [ {
+						"id": "V_String",
+						"params": ["cff26790-bde0-11f1-93a3-9b447c14831d"]
+					}, {
+						"id": "V_String",
+						"params": ["d0587c60-bde0-11f1-93a3-fd78a5fcac68"]
+					} ] }],
+					"__worldX": 3104,
+					"__worldY": 800
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [9,3],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "d0587c60-bde0-11f1-93a3-fd78a5fcac68",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [608,224],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [{
+						"entityIid": "d027f680-bde0-11f1-93a3-1d7f875f0dc2",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}], "__tile": null, "defUid": 7, "realEditorValues": [{
+						"id": "V_String",
+						"params": ["d027f680-bde0-11f1-93a3-1d7f875f0dc2"]
+					}] }],
+					"__worldX": 3168,
+					"__worldY": 800
+				},
+				{
+					"__identifier": "Player",
+					"__grid": [0,3],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": null,
+					"__smartColor": "#352FBE",
+					"iid": "d5efc2a0-bde0-11f1-93a3-edc68f783717",
+					"width": 64,
+					"height": 64,
+					"defUid": 3,
+					"px": [32,224],
+					"fieldInstances": [],
+					"__worldX": 2592,
+					"__worldY": 800
+				},
+				{
+					"__identifier": "LightBall",
+					"__grid": [0,10],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": null,
+					"__smartColor": "#F4F4CF",
+					"iid": "d70ca450-bde0-11f1-93a3-339f027d4232",
+					"width": 64,
+					"height": 64,
+					"defUid": 8,
+					"px": [32,672],
+					"fieldInstances": [],
+					"__worldX": 2592,
+					"__worldY": 1248
+				},
+				{
+					"__identifier": "Target",
+					"__grid": [13,10],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": null,
+					"__smartColor": "#3E8948",
+					"iid": "da32ea90-bde0-11f1-93a3-c3c1f44cf48c",
+					"width": 64,
+					"height": 64,
+					"defUid": 16,
+					"px": [864,672],
+					"fieldInstances": [],
+					"__worldX": 3424,
+					"__worldY": 1248
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [8,4],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "fc0e0fa0-bde0-11f1-93a3-2712f1319ad6",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [544,288],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [{
+						"entityIid": "fc8fc2c0-bde0-11f1-93a3-67fd502f539a",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}], "__tile": null, "defUid": 7, "realEditorValues": [{
+						"id": "V_String",
+						"params": ["fc8fc2c0-bde0-11f1-93a3-67fd502f539a"]
+					}] }],
+					"__worldX": 3104,
+					"__worldY": 864
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [9,4],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "fc8fc2c0-bde0-11f1-93a3-67fd502f539a",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [608,288],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [{
+						"entityIid": "fc0e0fa0-bde0-11f1-93a3-2712f1319ad6",
+						"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+						"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+						"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+					}], "__tile": null, "defUid": 7, "realEditorValues": [{
+						"id": "V_String",
+						"params": ["fc0e0fa0-bde0-11f1-93a3-2712f1319ad6"]
+					}] }],
+					"__worldX": 3168,
+					"__worldY": 864
+				},
+				{
+					"__identifier": "Crate",
+					"__grid": [10,3],
+					"__pivot": [0.5,0.5],
+					"__tags": [],
+					"__tile": { "tilesetUid": 17, "x": 64, "y": 256, "w": 16, "h": 16 },
+					"__smartColor": "#D77643",
+					"iid": "00d7ccb0-bde0-11f1-93a3-83092d3f10f9",
+					"width": 64,
+					"height": 64,
+					"defUid": 4,
+					"px": [672,224],
+					"fieldInstances": [{ "__identifier": "connected_crates", "__type": "Array<EntityRef>", "__value": [], "__tile": null, "defUid": 7, "realEditorValues": [] }],
+					"__worldX": 3232,
+					"__worldY": 800
+				}
+			]
+		},
+		{
+			"__identifier": "Walls",
+			"__type": "IntGrid",
+			"__cWid": 14,
+			"__cHei": 11,
+			"__gridSize": 64,
+			"__opacity": 1,
+			"__pxTotalOffsetX": 0,
+			"__pxTotalOffsetY": 0,
+			"__tilesetDefUid": null,
+			"__tilesetRelPath": null,
+			"iid": "c48b3ee1-bde0-11f1-93a3-650d6265ac1e",
+			"levelId": 29,
+			"layerDefUid": 2,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"visible": true,
+			"optionalRules": [],
+			"intGridCsv": [
+				1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"autoLayerTiles": [],
+			"seed": 2428128,
+			"overrideTilesetUid": null,
+			"gridTiles": [],
+			"entityInstances": []
+		}
+	],
+	"__neighbours": [ { "levelIid": "76885a10-bde0-11f1-86de-554e9eb7b893", "dir": "n" }, { "levelIid": "272ac660-bde0-11f1-8ae4-cf63b8accfc2", "dir": "n" }, { "levelIid": "feb493a0-bde0-11f1-93a3-fd8acaa8bc1e", "dir": "w" } ]
+}

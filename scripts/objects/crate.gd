@@ -1,7 +1,6 @@
 class_name Crate
 extends GridObject
 
-var cluster: CrateCluster = null
 var connected_crates: Array[Crate] = []
 var iid: String = ""
 
@@ -31,7 +30,7 @@ func on_light_changed(lit: bool) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	# Draw visual link indicators to connected neighbor crates in the same cluster
+	# Draw visual link indicators to connected neighbor crates
 	if connected_crates.is_empty():
 		return
 

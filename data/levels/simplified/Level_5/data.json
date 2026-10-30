@@ -18,6 +18,10 @@
 		{
 			"levelIid": "46a278a2-bde0-11f1-8ae4-955b7437a443",
 			"dir": "nw"
+		},
+		{
+			"levelIid": "feb493a0-bde0-11f1-93a3-fd8acaa8bc1e",
+			"dir": "e"
 		}
 	],
 	"customFields" : {},
@@ -28,7 +32,7 @@
 				"id": "Target",
 				"iid": "8a146e10-bde0-11f1-8d53-2f1c17ca7d19",
 				"layer": "Entities",
-				"x": 480,
+				"x": 800,
 				"y": 608,
 				"width": 64,
 				"height": 64,
@@ -41,8 +45,8 @@
 				"id": "LightBall",
 				"iid": "8a146e11-bde0-11f1-8d53-253798b80c62",
 				"layer": "Entities",
-				"x": 416,
-				"y": 224,
+				"x": 800,
+				"y": 480,
 				"width": 64,
 				"height": 64,
 				"color": 16053455,
@@ -55,7 +59,7 @@
 				"iid": "8a146e12-bde0-11f1-8d53-a5eaa96e8cf7",
 				"layer": "Entities",
 				"x": 96,
-				"y": 96,
+				"y": 544,
 				"width": 64,
 				"height": 64,
 				"color": 3485630,
@@ -67,8 +71,8 @@
 				"id": "Crate",
 				"iid": "8a146e15-bde0-11f1-8d53-9f3e8858fec1",
 				"layer": "Entities",
-				"x": 160,
-				"y": 224,
+				"x": 224,
+				"y": 96,
 				"width": 64,
 				"height": 64,
 				"color": 14120515,
@@ -80,71 +84,39 @@
 				"id": "Crate",
 				"iid": "f5c65010-bde0-11f1-8f34-67437ea142db",
 				"layer": "Entities",
-				"x": 736,
-				"y": 224,
+				"x": 224,
+				"y": 480,
 				"width": 64,
 				"height": 64,
 				"color": 14120515,
 				"customFields": {
 					"connected_crates": []
 				}
-			}
-		],
-		"Button": [
+			},
 			{
-				"id": "Button",
-				"iid": "844088d0-bde0-11f1-8f34-6b78c0789edb",
+				"id": "Crate",
+				"iid": "d02c74e0-bde0-11f1-93a3-3d4da2d50011",
 				"layer": "Entities",
-				"x": 416,
-				"y": 224,
+				"x": 224,
+				"y": 544,
 				"width": 64,
 				"height": 64,
-				"color": 15389866,
+				"color": 14120515,
 				"customFields": {
-					"color_id": "red"
+					"connected_crates": []
 				}
 			},
 			{
-				"id": "Button",
-				"iid": "cb83fbe0-bde0-11f1-8f34-d5b11a8a72f7",
+				"id": "Crate",
+				"iid": "d25dd3d0-bde0-11f1-93a3-1bc200030ad0",
 				"layer": "Entities",
-				"x": 480,
-				"y": 224,
+				"x": 224,
+				"y": 608,
 				"width": 64,
 				"height": 64,
-				"color": 15389866,
+				"color": 14120515,
 				"customFields": {
-					"color_id": "blue"
-				}
-			}
-		],
-		"Door": [
-			{
-				"id": "Door",
-				"iid": "8756a270-bde0-11f1-8f34-19925cf3cd28",
-				"layer": "Entities",
-				"x": 288,
-				"y": 352,
-				"width": 64,
-				"height": 64,
-				"color": 12470831,
-				"customFields": {
-					"color_id": "red",
-					"default_is_open": false
-				}
-			},
-			{
-				"id": "Door",
-				"iid": "c9f51e80-bde0-11f1-8f34-73bfb03154f6",
-				"layer": "Entities",
-				"x": 608,
-				"y": 352,
-				"width": 64,
-				"height": 64,
-				"color": 12470831,
-				"customFields": {
-					"color_id": "blue",
-					"default_is_open": false
+					"connected_crates": []
 				}
 			}
 		]

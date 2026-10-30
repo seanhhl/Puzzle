@@ -1,0 +1,253 @@
+{
+	"identifier": "Level_7",
+	"uniqueIdentifer": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+	"x": 2560,
+	"y": 576,
+	"width": 896,
+	"height": 704,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "76885a10-bde0-11f1-86de-554e9eb7b893",
+			"dir": "n"
+		},
+		{
+			"levelIid": "272ac660-bde0-11f1-8ae4-cf63b8accfc2",
+			"dir": "n"
+		},
+		{
+			"levelIid": "feb493a0-bde0-11f1-93a3-fd8acaa8bc1e",
+			"dir": "w"
+		}
+	],
+	"customFields" : {},
+	"layers": [],
+	"entities": {
+		"Crate": [
+			{
+				"id": "Crate",
+				"iid": "cd7336c0-bde0-11f1-93a3-4f146c71685d",
+				"layer": "Entities",
+				"x": 352,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "cda98900-bde0-11f1-93a3-6309c61197b1",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "cda98900-bde0-11f1-93a3-6309c61197b1",
+				"layer": "Entities",
+				"x": 352,
+				"y": 288,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "cd7336c0-bde0-11f1-93a3-4f146c71685d",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						},
+						{
+							"entityIid": "cddef0e0-bde0-11f1-93a3-13d93abad501",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "cddef0e0-bde0-11f1-93a3-13d93abad501",
+				"layer": "Entities",
+				"x": 352,
+				"y": 352,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "cda98900-bde0-11f1-93a3-6309c61197b1",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "cff26790-bde0-11f1-93a3-9b447c14831d",
+				"layer": "Entities",
+				"x": 480,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "d027f680-bde0-11f1-93a3-1d7f875f0dc2",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "d027f680-bde0-11f1-93a3-1d7f875f0dc2",
+				"layer": "Entities",
+				"x": 544,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "cff26790-bde0-11f1-93a3-9b447c14831d",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						},
+						{
+							"entityIid": "d0587c60-bde0-11f1-93a3-fd78a5fcac68",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "d0587c60-bde0-11f1-93a3-fd78a5fcac68",
+				"layer": "Entities",
+				"x": 608,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "d027f680-bde0-11f1-93a3-1d7f875f0dc2",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "fc0e0fa0-bde0-11f1-93a3-2712f1319ad6",
+				"layer": "Entities",
+				"x": 544,
+				"y": 288,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "fc8fc2c0-bde0-11f1-93a3-67fd502f539a",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "fc8fc2c0-bde0-11f1-93a3-67fd502f539a",
+				"layer": "Entities",
+				"x": 608,
+				"y": 288,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "fc0e0fa0-bde0-11f1-93a3-2712f1319ad6",
+							"layerIid": "c48b3ee0-bde0-11f1-93a3-c390486be491",
+							"levelIid": "c48b17d0-bde0-11f1-93a3-df11f8b31cfd",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "00d7ccb0-bde0-11f1-93a3-83092d3f10f9",
+				"layer": "Entities",
+				"x": 672,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": []
+				}
+			}
+		],
+		"Player": [
+			{
+				"id": "Player",
+				"iid": "d5efc2a0-bde0-11f1-93a3-edc68f783717",
+				"layer": "Entities",
+				"x": 32,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 3485630,
+				"customFields" : {}
+			}
+		],
+		"LightBall": [
+			{
+				"id": "LightBall",
+				"iid": "d70ca450-bde0-11f1-93a3-339f027d4232",
+				"layer": "Entities",
+				"x": 32,
+				"y": 672,
+				"width": 64,
+				"height": 64,
+				"color": 16053455,
+				"customFields" : {}
+			}
+		],
+		"Target": [
+			{
+				"id": "Target",
+				"iid": "da32ea90-bde0-11f1-93a3-c3c1f44cf48c",
+				"layer": "Entities",
+				"x": 864,
+				"y": 672,
+				"width": 64,
+				"height": 64,
+				"color": 4098376,
+				"customFields" : {}
+			}
+		]
+	}
+}
