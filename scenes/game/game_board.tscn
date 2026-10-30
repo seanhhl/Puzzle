@@ -1,0 +1,97 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/game_board.gd" id="1_game_board"]
+[ext_resource type="Script" path="res://scripts/core/grid_manager.gd" id="2_grid_manager"]
+[ext_resource type="Script" path="res://scripts/game/ground_view.gd" id="3_ground_view"]
+[ext_resource type="PackedScene" path="res://scenes/ui/level_select_dialog.tscn" id="4_level_select"]
+
+[node name="GameBoard" type="Node2D"]
+script = ExtResource("1_game_board")
+
+[node name="GridManager" type="Node" parent="."]
+script = ExtResource("2_grid_manager")
+
+[node name="WorldContainer" type="Node2D" parent="."]
+
+[node name="GroundView" type="Node2D" parent="WorldContainer"]
+script = ExtResource("3_ground_view")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="HeaderRow" type="HBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelTitleLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/HeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Level 1"
+
+[node name="SelectLevelButton" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer/HeaderRow"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "選關 / Select Level (L)"
+
+[node name="HintLabel" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 14
+text = "WASD / 方向鍵：移動   Z：復原   R：重試   N/P：切換關卡   L：輸入檔名選關"
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WinBanner" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/WinBanner"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/WinBanner/MarginContainer"]
+layout_mode = 2
+
+[node name="WinText" type="Label" parent="CanvasLayer/CenterContainer/WinBanner/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.9, 0.4, 1)
+theme_override_font_sizes/font_size = 26
+text = "🎉 關卡完成！"
+horizontal_alignment = 1
+
+[node name="NextHint" type="Label" parent="CanvasLayer/CenterContainer/WinBanner/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "按 [ N ] 進入下一關"
+horizontal_alignment = 1
+
+[node name="LevelSelectDialog" parent="CanvasLayer" instance=ExtResource("4_level_select")]
+unique_name_in_owner = true
+visible = false

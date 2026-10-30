@@ -1,0 +1,115 @@
+{
+  "identifier": "Level_03",
+  "pxWid": 768,
+  "pxHei": 768,
+  "fieldInstances": [
+    {
+      "__identifier": "level_name",
+      "__value": "消失的障礙｜黑暗中的箱子可以穿越！"
+    }
+  ],
+  "layerInstances": [
+    {
+      "__identifier": "Entities",
+      "__type": "Entities",
+      "__gridSize": 64,
+      "entityInstances": [
+        { "__identifier": "Wall", "__grid": [0, 0], "iid": "w_0_0" },
+        { "__identifier": "Wall", "__grid": [1, 0], "iid": "w_1_0" },
+        { "__identifier": "Wall", "__grid": [2, 0], "iid": "w_2_0" },
+        { "__identifier": "Wall", "__grid": [3, 0], "iid": "w_3_0" },
+        { "__identifier": "Wall", "__grid": [4, 0], "iid": "w_4_0" },
+        { "__identifier": "Wall", "__grid": [5, 0], "iid": "w_5_0" },
+        { "__identifier": "Wall", "__grid": [6, 0], "iid": "w_6_0" },
+        { "__identifier": "Wall", "__grid": [7, 0], "iid": "w_7_0" },
+        { "__identifier": "Wall", "__grid": [8, 0], "iid": "w_8_0" },
+        { "__identifier": "Wall", "__grid": [9, 0], "iid": "w_9_0" },
+        { "__identifier": "Wall", "__grid": [10, 0], "iid": "w_10_0" },
+        { "__identifier": "Wall", "__grid": [11, 0], "iid": "w_11_0" },
+
+        { "__identifier": "Wall", "__grid": [0, 1], "iid": "w_0_1" },
+        { "__identifier": "Player", "__grid": [1, 1], "iid": "p_1_1" },
+        { "__identifier": "Wall", "__grid": [11, 1], "iid": "w_11_1" },
+
+        { "__identifier": "Wall", "__grid": [0, 2], "iid": "w_0_2" },
+        { "__identifier": "LightBall", "__grid": [3, 2], "iid": "lb_3_2" },
+        { "__identifier": "Wall", "__grid": [11, 2], "iid": "w_11_2" },
+
+        { "__identifier": "Wall", "__grid": [0, 3], "iid": "w_0_3" },
+        { "__identifier": "Wall", "__grid": [11, 3], "iid": "w_11_3" },
+
+        { "__identifier": "Wall", "__grid": [0, 4], "iid": "w_0_4" },
+        { "__identifier": "Wall", "__grid": [5, 4], "iid": "w_5_4" },
+        { "__identifier": "Wall", "__grid": [6, 4], "iid": "w_6_4" },
+        { "__identifier": "Wall", "__grid": [7, 4], "iid": "w_7_4" },
+        { "__identifier": "Wall", "__grid": [8, 4], "iid": "w_8_4" },
+        { "__identifier": "Wall", "__grid": [9, 4], "iid": "w_9_4" },
+        { "__identifier": "Wall", "__grid": [11, 4], "iid": "w_11_4" },
+
+        { "__identifier": "Wall", "__grid": [0, 5], "iid": "w_0_5" },
+        { "__identifier": "Wall", "__grid": [5, 5], "iid": "w_5_5" },
+        { "__identifier": "Wall", "__grid": [9, 5], "iid": "w_9_5" },
+        { "__identifier": "Wall", "__grid": [11, 5], "iid": "w_11_5" },
+
+        { "__identifier": "Wall", "__grid": [0, 6], "iid": "w_0_6" },
+        { "__identifier": "Wall", "__grid": [5, 6], "iid": "w_5_6" },
+        { "__identifier": "Crate", "__grid": [7, 6], "iid": "c_7_6", "fieldInstances": [] },
+        { "__identifier": "Wall", "__grid": [9, 6], "iid": "w_9_6" },
+        { "__identifier": "Wall", "__grid": [11, 6], "iid": "w_11_6" },
+
+        { "__identifier": "Wall", "__grid": [0, 7], "iid": "w_0_7" },
+        { "__identifier": "Wall", "__grid": [5, 7], "iid": "w_5_7" },
+        { "__identifier": "Wall", "__grid": [9, 7], "iid": "w_9_7" },
+        { "__identifier": "Wall", "__grid": [11, 7], "iid": "w_11_7" },
+
+        { "__identifier": "Wall", "__grid": [0, 8], "iid": "w_0_8" },
+        { "__identifier": "Wall", "__grid": [5, 8], "iid": "w_5_8" },
+        {
+          "__identifier": "Door",
+          "__grid": [6, 8],
+          "iid": "d_6_8",
+          "fieldInstances": [
+            { "__identifier": "color_id", "__value": "red" },
+            { "__identifier": "default_is_open", "__value": false }
+          ]
+        },
+        { "__identifier": "Wall", "__grid": [9, 8], "iid": "w_9_8" },
+        { "__identifier": "Wall", "__grid": [11, 8], "iid": "w_11_8" },
+
+        { "__identifier": "Wall", "__grid": [0, 9], "iid": "w_0_9" },
+        { "__identifier": "Wall", "__grid": [5, 9], "iid": "w_5_9" },
+        { "__identifier": "Wall", "__grid": [6, 9], "iid": "w_6_9" },
+        { "__identifier": "Wall", "__grid": [7, 9], "iid": "w_7_9" },
+        { "__identifier": "Wall", "__grid": [8, 9], "iid": "w_8_9" },
+        { "__identifier": "Wall", "__grid": [9, 9], "iid": "w_9_9" },
+        { "__identifier": "Wall", "__grid": [11, 9], "iid": "w_11_9" },
+
+        { "__identifier": "Wall", "__grid": [0, 10], "iid": "w_0_10" },
+        {
+          "__identifier": "Button",
+          "__grid": [8, 10],
+          "iid": "btn_8_10",
+          "fieldInstances": [
+            { "__identifier": "color_id", "__value": "red" }
+          ]
+        },
+        { "__identifier": "Target", "__grid": [10, 10], "iid": "t_10_10" },
+        { "__identifier": "Wall", "__grid": [11, 10], "iid": "w_11_10" },
+
+        { "__identifier": "Wall", "__grid": [0, 11], "iid": "w_0_11" },
+        { "__identifier": "Wall", "__grid": [1, 11], "iid": "w_1_11" },
+        { "__identifier": "Wall", "__grid": [2, 11], "iid": "w_2_11" },
+        { "__identifier": "Wall", "__grid": [3, 11], "iid": "w_3_11" },
+        { "__identifier": "Wall", "__grid": [4, 11], "iid": "w_4_11" },
+        { "__identifier": "Wall", "__grid": [5, 11], "iid": "w_5_11" },
+        { "__identifier": "Wall", "__grid": [6, 11], "iid": "w_6_11" },
+        { "__identifier": "Wall", "__grid": [7, 11], "iid": "w_7_11" },
+        { "__identifier": "Wall", "__grid": [8, 11], "iid": "w_8_11" },
+        { "__identifier": "Wall", "__grid": [9, 11], "iid": "w_9_11" },
+        { "__identifier": "Wall", "__grid": [10, 11], "iid": "w_10_11" },
+        { "__identifier": "Wall", "__grid": [11, 11], "iid": "w_11_11" }
+      ]
+    }
+  ]
+}
+

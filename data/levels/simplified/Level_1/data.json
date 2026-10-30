@@ -1,0 +1,134 @@
+{
+	"identifier": "Level_1",
+	"uniqueIdentifer": "90cdb6b0-bde0-11f1-825c-f5fb6ef8ed5c",
+	"x": 768,
+	"y": 0,
+	"width": 768,
+	"height": 576,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "8a141ff0-bde0-11f1-8d53-03ed089497f3",
+			"dir": "s"
+		},
+		{
+			"levelIid": "ef926740-bde0-11f1-8ae4-61b797308b01",
+			"dir": "e"
+		},
+		{
+			"levelIid": "46a278a2-bde0-11f1-8ae4-955b7437a443",
+			"dir": "w"
+		}
+	],
+	"customFields" : {},
+	"layers": [],
+	"entities": {
+		"Target": [
+			{
+				"id": "Target",
+				"iid": "90cdddc1-bde0-11f1-825c-138d249da09a",
+				"layer": "Entities",
+				"x": 672,
+				"y": 480,
+				"width": 64,
+				"height": 64,
+				"color": 4098376,
+				"customFields" : {}
+			}
+		],
+		"LightBall": [
+			{
+				"id": "LightBall",
+				"iid": "90ce2be2-bde0-11f1-825c-270300317fd5",
+				"layer": "Entities",
+				"x": 672,
+				"y": 96,
+				"width": 64,
+				"height": 64,
+				"color": 16053455,
+				"customFields" : {}
+			}
+		],
+		"Player": [
+			{
+				"id": "Player",
+				"iid": "90ce2be0-bde0-11f1-825c-65aafc2516d0",
+				"layer": "Entities",
+				"x": 96,
+				"y": 96,
+				"width": 64,
+				"height": 64,
+				"color": 3485630,
+				"customFields" : {}
+			}
+		],
+		"Crate": [
+			{
+				"id": "Crate",
+				"iid": "b9b55ce0-bde0-11f1-825c-ff65b0e7ca84",
+				"layer": "Entities",
+				"x": 224,
+				"y": 160,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": []
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "a50cb8f0-bde0-11f1-8ae4-83d0bc55f427",
+				"layer": "Entities",
+				"x": 224,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "b9b55ce0-bde0-11f1-825c-ff65b0e7ca84",
+							"layerIid": "90cdb6b1-bde0-11f1-825c-1bda8ebc2092",
+							"levelIid": "90cdb6b0-bde0-11f1-825c-f5fb6ef8ed5c",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "d90ed320-bde0-11f1-8ae4-81aecdd8ef90",
+				"layer": "Entities",
+				"x": 224,
+				"y": 288,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "a50cb8f0-bde0-11f1-8ae4-83d0bc55f427",
+							"layerIid": "90cdb6b1-bde0-11f1-825c-1bda8ebc2092",
+							"levelIid": "90cdb6b0-bde0-11f1-825c-f5fb6ef8ed5c",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "e115b9d0-bde0-11f1-8ae4-1b3d86931ef6",
+				"layer": "Entities",
+				"x": 352,
+				"y": 160,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": []
+				}
+			}
+		]
+	}
+}

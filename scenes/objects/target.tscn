@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/objects/target.gd" id="1_target"]
+
+[node name="Target" type="Node2D"]
+z_index = 1
+script = ExtResource("1_target")
+
+[node name="Visual" type="ColorRect" parent="."]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+color = Color(0.18, 0.8, 0.44, 0.4)
+
+[node name="Center" type="ColorRect" parent="Visual"]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 34.0
+offset_bottom = 34.0
+color = Color(0.18, 0.8, 0.44, 0.9)

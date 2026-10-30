@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://daqx4gvs6udaf"
+
+[deps]
+
+files=["res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.0.translation"]
+
+source_file="res://data/levels/simplified/Level_3/Walls.csv"
+dest_files=["res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.1.translation", "res://data/levels/simplified/Level_3/Walls.0.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

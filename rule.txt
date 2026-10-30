@@ -1,0 +1,20 @@
+sokoban-like game
+
+objects:
+    player: move around the scene
+    wall: Block any objects
+    crate: can multi-push
+    button and door: 
+        when every button with the same color of a door are pressing down, The door state becomes the inverse of the default state. 
+        if any one button is released, door state become default state.
+        if there is no button on the scene, door state is default state.
+    light_ball(can multi-push): 
+        illuminate connected tiles, witch is separated by wall and box (door allows light to pass through). 
+        light can exactly illuminate the tile under obbstacles but not go through them.
+        when objects are not illuminated, they lose any function of themselves, like removed from the game untill being illuminated again,
+            for example:
+            player can not move anymore;
+            objects will lose their collision volume, objects pushing toward them will just pass through;
+            since the rule of door is "every button are pressed", we only need to press the rest in the light to open the door;
+
+

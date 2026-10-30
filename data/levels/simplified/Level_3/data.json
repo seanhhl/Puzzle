@@ -1,0 +1,181 @@
+{
+	"identifier": "Level_3",
+	"uniqueIdentifer": "272ac660-bde0-11f1-8ae4-cf63b8accfc2",
+	"x": 2304,
+	"y": 0,
+	"width": 768,
+	"height": 576,
+	"bgColor": "#696A79",
+	"neighbourLevels": [
+		{
+			"levelIid": "76885a10-bde0-11f1-86de-554e9eb7b893",
+			"dir": "e"
+		},
+		{
+			"levelIid": "ef926740-bde0-11f1-8ae4-61b797308b01",
+			"dir": "w"
+		}
+	],
+	"customFields" : {},
+	"layers": [],
+	"entities": {
+		"Target": [
+			{
+				"id": "Target",
+				"iid": "272ac662-bde0-11f1-8ae4-2b2c0d752ecb",
+				"layer": "Entities",
+				"x": 608,
+				"y": 416,
+				"width": 64,
+				"height": 64,
+				"color": 4098376,
+				"customFields" : {}
+			}
+		],
+		"LightBall": [
+			{
+				"id": "LightBall",
+				"iid": "272aed70-bde0-11f1-8ae4-0db7c32bede6",
+				"layer": "Entities",
+				"x": 96,
+				"y": 160,
+				"width": 64,
+				"height": 64,
+				"color": 16053455,
+				"customFields" : {}
+			},
+			{
+				"id": "LightBall",
+				"iid": "f58851d0-bde0-11f1-8ae4-4b85d515e0b8",
+				"layer": "Entities",
+				"x": 736,
+				"y": 32,
+				"width": 64,
+				"height": 64,
+				"color": 16053455,
+				"customFields" : {}
+			}
+		],
+		"Player": [
+			{
+				"id": "Player",
+				"iid": "272aed71-bde0-11f1-8ae4-cdedd7618aac",
+				"layer": "Entities",
+				"x": 96,
+				"y": 96,
+				"width": 64,
+				"height": 64,
+				"color": 3485630,
+				"customFields" : {}
+			}
+		],
+		"Crate": [
+			{
+				"id": "Crate",
+				"iid": "272aed72-bde0-11f1-8ae4-f1f25107adf7",
+				"layer": "Entities",
+				"x": 544,
+				"y": 96,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": []
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "7a87ac10-bde0-11f1-8ae4-cbe1147761d6",
+				"layer": "Entities",
+				"x": 160,
+				"y": 288,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "7b0edd70-bde0-11f1-8ae4-23ecf04b6147",
+							"layerIid": "272ac661-bde0-11f1-8ae4-45c377353c1c",
+							"levelIid": "272ac660-bde0-11f1-8ae4-cf63b8accfc2",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "7b0edd70-bde0-11f1-8ae4-23ecf04b6147",
+				"layer": "Entities",
+				"x": 224,
+				"y": 288,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "7bac2ee0-bde0-11f1-8ae4-c5bca025f11e",
+							"layerIid": "272ac661-bde0-11f1-8ae4-45c377353c1c",
+							"levelIid": "272ac660-bde0-11f1-8ae4-cf63b8accfc2",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "7bac2ee0-bde0-11f1-8ae4-c5bca025f11e",
+				"layer": "Entities",
+				"x": 224,
+				"y": 224,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "7c3d4b50-bde0-11f1-8ae4-c130215d9ff5",
+							"layerIid": "272ac661-bde0-11f1-8ae4-45c377353c1c",
+							"levelIid": "272ac660-bde0-11f1-8ae4-cf63b8accfc2",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "7c3d4b50-bde0-11f1-8ae4-c130215d9ff5",
+				"layer": "Entities",
+				"x": 224,
+				"y": 160,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": [
+						{
+							"entityIid": "7ccb8190-bde0-11f1-8ae4-cd42a52d43bf",
+							"layerIid": "272ac661-bde0-11f1-8ae4-45c377353c1c",
+							"levelIid": "272ac660-bde0-11f1-8ae4-cf63b8accfc2",
+							"worldIid": "7687bdd0-bde0-11f1-86de-93f4f5bf771b"
+						}
+					]
+				}
+			},
+			{
+				"id": "Crate",
+				"iid": "7ccb8190-bde0-11f1-8ae4-cd42a52d43bf",
+				"layer": "Entities",
+				"x": 288,
+				"y": 160,
+				"width": 64,
+				"height": 64,
+				"color": 14120515,
+				"customFields": {
+					"connected_crates": []
+				}
+			}
+		]
+	}
+}
